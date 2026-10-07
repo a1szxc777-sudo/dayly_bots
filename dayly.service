@@ -1,0 +1,17 @@
+[Unit]
+Description=Dayly Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/dayly
+EnvironmentFile=/home/ubuntu/dayly/.env
+ExecStart=/home/ubuntu/dayly/venv/bin/python /home/ubuntu/dayly/bot.py
+Restart=always
+RestartSec=5
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target
