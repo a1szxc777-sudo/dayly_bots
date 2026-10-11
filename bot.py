@@ -10,12 +10,6 @@ source = path.read_text(encoding="utf-8")
 backup = path.with_name(f"bot.py.backup-{datetime.now():%Y%m%d-%H%M%S}")
 shutil.copy2(path, backup)
 
-old_config = '''ANTHROPIC_API_KEY = env('ANTHROPIC_API_KEY')   # необязательно: включает ИИ-агента
-if ANTHROPIC_API_KEY.upper().startswith('PASTE'):    # ключ-заглушка из .env.example считаем пустым
-    ANTHROPIC_API_KEY = ''
-AI_MODEL = env('AI_MODEL', 'claude-haiku-4-5-20251001')
-AI_URL = 'https://api.anthropic.com/v1/messages' '''
-old_config = old_config.rstrip()
 new_config = '''GEMINI_API_KEY = env('GEMINI_API_KEY')  # необязательно: включает ИИ-агента
 if GEMINI_API_KEY.upper().startswith('PASTE'):
     GEMINI_API_KEY = 'AQ.Ab8RN6K6Dq-vZ5ZpbHGAkowBscMm5G6EOnKl18YZSFT-QLaZLA'
